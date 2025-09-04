@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function PropertyCard({ data, property }: PropertyCardProps) {
   return (
     <Link href={`/property/${property.id}`} className="w-full">
-      <div className="flex flex-col bg-white rounded-xl shadow-md overflow-hidden h-full group">
+      <div className="flex flex-col bg-white rounded-xl shadow-md overflow-hidden h-full group transition-shadow duration-300 hover:shadow-lg">
         {/* Image with margin inside the card */}
         <div className="p-4 pb-0">
           <div className="relative w-full h-[200px] rounded-2xl overflow-hidden">
@@ -13,8 +13,10 @@ export default function PropertyCard({ data, property }: PropertyCardProps) {
               src={data.image}
               alt={data.name}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-110"
+              className="object-cover transition-transform duration-300 group-hover:scale-110 group-hover:brightness-75"
             />
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </div>
         </div>
 
